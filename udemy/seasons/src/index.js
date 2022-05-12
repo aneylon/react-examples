@@ -50,6 +50,19 @@ class App extends React.Component {
       </div>
     )
   }
+
+  componentDidCatch(){
+    console.info('catch')
+  }
+  componentDidMount(){
+    console.info('mount')
+  }
+  componentDidUpdate(){
+    console.info('update')
+  }
+  componentWillUnmount(){
+    console.info('unmount')
+  }
 }
 
 ReactDOM.render(
