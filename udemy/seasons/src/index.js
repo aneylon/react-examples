@@ -6,8 +6,14 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     // only time to directly assign to state
-    this.state = { lat: null, lon: null, errorMessage: '' }
+    // this.state = { lat: null, lon: null, errorMessage: '' }
+    console.info('constructicons!')
+  }
 
+  state = { lat: null, lon: null, errorMessage: '' }
+
+  componentDidMount() {
+    console.info('mount up!')
     window.navigator.geolocation.getCurrentPosition(
       (position) => {
         this.setState({lat: position.coords.latitude, lon: position.coords.longitude}) 
@@ -27,12 +33,7 @@ class App extends React.Component {
         <div>
           { (this.state.lat !== null && this.state.lon !== null) &&
             <div>
-              <p>
-                Latitude: {this.state.lat}
-              </p>
-              <p>
-                Longitude: {this.state.lon}
-              </p>
+              <SeasonDisplay lat={this.state.lat} lon={this.state.lon} />
             </div>
           }
           { this.state.errorMessage !== '' && 
@@ -46,7 +47,6 @@ class App extends React.Component {
             </p>
           }
         </div>
-        <SeasonDisplay/>
       </div>
     )
   }
@@ -54,15 +54,14 @@ class App extends React.Component {
   componentDidCatch(){
     console.info('catch')
   }
-  componentDidMount(){
-    console.info('mount')
-  }
   componentDidUpdate(){
     console.info('update')
   }
   componentWillUnmount(){
     console.info('unmount')
   }
+  // shouldComponentUpdate(){} // return boolean value
+  // getSnapshotBeforeUpdate(){} // must return null
 }
 
 ReactDOM.render(
