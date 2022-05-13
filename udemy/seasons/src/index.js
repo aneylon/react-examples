@@ -1,6 +1,8 @@
+import './SeasonDisplay.css'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import SeasonDisplay from './SeasonDisplay'
+import Spinner from './Spinner'
 
 class App extends React.Component {
   constructor(props) {
@@ -42,9 +44,7 @@ class App extends React.Component {
             </p>
           }
           { (this.state.lon === null && this.state.lat === null && this.state.errorMessage === '') &&
-            <p>
-              ...Loading...
-            </p>
+            <Spinner loadingMessage="Please accept location request."/>
           }
         </div>
       </div>
