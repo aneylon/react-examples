@@ -28,25 +28,31 @@ class App extends React.Component {
     )
   }
 
+  renderContent () {
+    return (
+      <div>
+        { (this.state.lat !== null && this.state.lon !== null) &&
+          <div>
+            <SeasonDisplay lat={this.state.lat} lon={this.state.lon} />
+          </div>
+        }
+        { this.state.errorMessage !== '' && 
+          <p>
+            Error: {this.state.errorMessage}
+          </p>
+        }
+        { (this.state.lon === null && this.state.lat === null && this.state.errorMessage === '') &&
+          <Spinner loadingMessage="Please accept location request."/>
+        }
+      </div>
+    )
+  }
+
   render () {
     console.log('render')
     return (
       <div>
-        <div>
-          { (this.state.lat !== null && this.state.lon !== null) &&
-            <div>
-              <SeasonDisplay lat={this.state.lat} lon={this.state.lon} />
-            </div>
-          }
-          { this.state.errorMessage !== '' && 
-            <p>
-              Error: {this.state.errorMessage}
-            </p>
-          }
-          { (this.state.lon === null && this.state.lat === null && this.state.errorMessage === '') &&
-            <Spinner loadingMessage="Please accept location request."/>
-          }
-        </div>
+        {this.renderContent()}
       </div>
     )
   }
