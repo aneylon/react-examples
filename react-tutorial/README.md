@@ -7,7 +7,7 @@ npx create-react-app <app-name>
 ## Available Scripts
 
 In the project directory, you can run:
-
+### `yarn install`
 ### `yarn start`
 
 Runs the app in the development mode.\
