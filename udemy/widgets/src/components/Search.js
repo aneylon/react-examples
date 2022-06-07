@@ -4,8 +4,6 @@ const Search = () => {
   const [searchTerm, setSearchTerm] = useState('programming')
   const [results, setResults] = useState([])
 
-  console.log(results)
-
   useEffect(() => {
     // IIFE
     // (async () => {
