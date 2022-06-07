@@ -2,21 +2,22 @@ import React, { useState } from 'react'
 import Accordion from './components/Accordion'
 import Dropdown from './components/Dropdown'
 import Search from './components/Search'
+import Translate from './components/Translate'
 
 export default () => {
-  const [selected, setSelected] = useState(options[0])
-  const [showDropdown, setShowDropdown] = useState(true)
-
+  // const [selected, setSelected] = useState(options[0])
+  // const [showDropdown, setShowDropdown] = useState(true)
 
   return (
     <div>
-      <button onClick={() => setShowDropdown(!showDropdown)}>Toggle Dropdown</button>
       {/* <Accordion items={items} /> */}
       {/* <Search /> */}
+      {/* <button onClick={() => setShowDropdown(!showDropdown)}>Toggle Dropdown</button>
       { showDropdown ? 
       <Dropdown onSelectedChange={setSelected} selected={selected} options={options}/>
       : null
-      }
+      } */}
+      <Translate />
     </div>
   )
 }
